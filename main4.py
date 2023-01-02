@@ -4,9 +4,17 @@ import random
 
 
 ID_TOKEN = "5724701366:AAFEQHc0elthrFpat_eSY6PJIK_zIiEdqMA"
+count = 0;
 
 bot = Bot(ID_TOKEN);
 dp = Dispatcher(bot);
+
+@dp.message_handler(commands=["count"])
+async def count1(message: types.Message):
+    global count
+    await message.answer(f'Вы вызвали /count: {count} раз!')
+    await message.delete()
+    count +=1;
 
 
 @dp.message_handler(commands=["lol", "pop", "LOL"])

@@ -23,6 +23,13 @@ async def lol1(message: types.Message):
     await message.delete()
 
 @dp.message_handler()
+async def sub_zero(message: types.Message):
+    # if message.text.__contains__("0"):
+    if "0" in message.text:
+        return await message.answer("Your message have ZERO in text")
+    await message.answer("No Sub-ZERO!!!")
+
+@dp.message_handler()
 async def random1(message: types.Message):
     await message.reply(random.choice(string.ascii_letters));
 

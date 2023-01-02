@@ -2,10 +2,8 @@ from aiogram import Bot, Dispatcher, types, executor
 
 HELP_COMMAND = """
 /help - all commands
-
 /start - we are start 
 """
-
 
 TOKEN_API ="5724701366:AAFEQHc0elthrFpat_eSY6PJIK_zIiEdqMA" #токен
 

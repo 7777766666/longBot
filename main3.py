@@ -1,16 +1,16 @@
 from aiogram import Bot, Dispatcher, types, executor
 
 
-TOKEN_API ="5724701366:AAFEQHc0elthrFpat_eSY6PJIK_zIiEdqMA"
+TOKEN_API ="5724701366:AAFEQHc0elthrFpat_eSY6PJIK_zIiEdqMA" #токен
 
-bot = Bot(TOKEN_API)
-dp = Dispatcher(bot)
+bot = Bot(TOKEN_API)    #переменная бот равна объекту класса бот с токеном
+dp = Dispatcher(bot)    # диспетчер равен объекту класса диспетчер с нашим ботом
 
-@dp.message_handler()
-async def ttttttttttttt(message: types.Message):
-    await message.answer(text=message.text.upper())
+@dp.message_handler()                                   #тут принимаем пока все запросы без ограничений
+async def ttttttttttttt(message: types.Message):        #асинхронная функция , любое название принимает сообщение пользователя
+    await message.answer(text=message.text.upper())     #отложенный запуск ответа, после действия справа = текст в верхний регистр
 
-if __name__ == "__main__":
+if __name__ == "__main__":                              #  Специальная переменная __name__ не устанавливается пользователем. Он в основном используется , чтобы проверить , является ли модуль в настоящее время работают самостоятельно или работать , потому что import был выполнен. Чтобы избежать вашего модуля для выполнения определенной части своего кода , когда он импортируется, проверьте , if __name__ == '__main__' .
     executor.start_polling(dp);
 
 

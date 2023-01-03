@@ -6,6 +6,7 @@ TOKEN_API ="5724701366:AAFEQHc0elthrFpat_eSY6PJIK_zIiEdqMA" #токен
 bot = Bot(TOKEN_API)    #переменная бот равна объекту класса бот с токеном
 dp = Dispatcher(bot)    # диспетчер равен объекту класса диспетчер с нашим ботом
 
+
 @dp.message_handler()                                   #тут принимаем пока все запросы без ограничений
 async def ttttttttttttt(message: types.Message):        #асинхронная функция , любое название принимает сообщение пользователя
     if message.text.count(" ") > 0:    # >=1 если сообщение содержит 1 или больше элементов разделенных пробелом

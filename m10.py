@@ -16,6 +16,7 @@ inline_keyboard.add(inline_keyboard_button1, inline_keyboard_button2)
 async def start66(_):
     print("!!!!!!!!!")
 
+
 @dp.message_handler(commands=["start"])
 async def lolol(message: types.Message):
     await bot.send_message(chat_id=message.from_user.id,

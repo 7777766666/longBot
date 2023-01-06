@@ -23,10 +23,10 @@ def lols() -> InlineKeyboardMarkup:
     return ikb
 
 @dp.message_handler(commands="s")
-async def get_mems(message: types.Message) -> None:
-    await message.answer(text=f"число сейчас {n}",
+async def get_mems(lols22: types.Message) -> None:
+    await lols22.answer(text=f"число сейчас {n}",
                          reply_markup=lols())
-    await message.delete()
+    await lols22.delete()
 
 @dp.callback_query_handler(lambda callback_query: callback_query.data.startswith("ikb"))
 async def get_ikb(callback: types.CallbackQuery) -> None:

@@ -7,7 +7,7 @@ async def send_sec1() -> None:
     while(True):
         await asyncio.sleep(1)
         n +=1
-        print(n)
+        print( f"Прошло {n} seconds")
 
 
 async def send_sec3() -> None:
@@ -15,7 +15,7 @@ async def send_sec3() -> None:
     while(True):
         await asyncio.sleep(3)
         n +=3
-        print(n)
+        print(f"Втораяф функция {n} секун кратное 3")
 
 
 

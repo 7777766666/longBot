@@ -2,6 +2,8 @@ from aiogram import Bot, Dispatcher, executor, types
 from config import KENGURY
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.callback_data import CallbackData
+from aiogram.types import InlineQueryResultArticle, InputTextMessageContent
+import hashlib
 
 bot = Bot(token=KENGURY)
 dispatcher = Dispatcher(bot=bot)
@@ -35,6 +37,21 @@ async def push_b2(call: types.CallbackQuery) -> None:
     await call.answer(text="World")
 
 
+@dispatcher.inline_handler()
+async def in_echo(inline_query: types.InlineQuery) -> None:
+    text = inline_query.query or "Echo" #текст от пользователя
+    input_content = InputTextMessageContent(text)   #формируем контент ответного сообщения
+    result_id: str = hashlib.md5(text.encode()).hexdigest() # сделали уникальный id результата
+    item = InlineQueryResultArticle(
+        input_message_content=input_content,
+        id=result_id,
+        title="Inline Echo Mode",
+    )
+
+    await bot.answer_inline_query(inline_query_id=inline_query.id,
+                                  results=[item],
+                                  cache_time=1)
+
 # @dispatcher.callback_query_handler(lambda callback_query: callback_query.data.startswith("b"))
 # async def sss(callback: types.CallbackQuery) -> None:
 #     if callback.data.__eq__("b1"):
@@ -50,3 +67,4 @@ async def push_b2(call: types.CallbackQuery) -> None:
 
 if __name__ == "__main__":
     executor.start_polling(on_startup = start777, skip_updates = True, dispatcher = dispatcher)
+

@@ -21,12 +21,9 @@ async def st1(mess: types.Message) -> None:
     return True     #эмитируем блокировку бота
 
 
-
-
 @dp.errors_handler(exception=BotBlocked)
 async def error_block(update: types.Update, exception: BotBlocked) -> bool:
     print("Impossible send, we are blocked")
-
 
 
 if __name__ == "__main__":

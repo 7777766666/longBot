@@ -68,7 +68,9 @@ async def load_age(mess: types.Message, state: FSMContext) -> None:
 async def load_description(mess: types.Message, state: FSMContext) -> None:
     async with state.proxy() as data:
         data["description"] = mess.text
-        print(data)
+        await bot.send_photo(chat_id=mess.chat.id,
+                             photo=data["photo"],
+                             caption=f"{data['name']}, {data['age']}\n{data['description']} ")
 
     await mess.reply(text="Спасибо, Ваш профиль полностью заполнен!")
     await state.finish()

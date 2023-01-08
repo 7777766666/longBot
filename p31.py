@@ -17,6 +17,7 @@ b2 = InlineKeyboardButton(text="Button 2", callback_data=cb.new("b2"))
 
 
 ikb.add(b1).add(b2)
+
 def get_ikb() -> InlineKeyboardMarkup:
     return ikb
 

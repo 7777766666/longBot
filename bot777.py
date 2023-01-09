@@ -4,7 +4,6 @@ from config import KENGURY
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.dispatcher import FSMContext
-from sqlite import db_start, create_profile, edit_profile
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 
@@ -35,7 +34,7 @@ def get_cancel_kb() -> ReplyKeyboardMarkup:
 
 
 async def on_startup(_):
-    await db_start()
+
     print("KENGURY")
 
 
@@ -55,7 +54,7 @@ async def cmd_start(mess: types.Message) -> None:
     await mess.answer(text="Желаете заполнить Ваш профиль /create",
                       reply_markup=get_kb())
 
-    await create_profile(user_id=mess.from_user.id)
+
 
 
 @dp.message_handler(commands=["create"])
@@ -110,11 +109,10 @@ async def load_description(mess: types.Message, state: FSMContext) -> None:
                              photo=data["photo"],
                              caption=f"Ваше имя: {data['name']}\nВам: {data['age']} лет\nЗадача: {data['description']} ")
 
-    await edit_profile(state, user_id=mess.from_user.id)
+
     await mess.reply(text="Спасибо, Ваш профиль полностью заполнен!")
     await state.finish()
 
 
 if __name__ == "__main__":
     executor.start_polling(dp, on_startup=on_startup, skip_updates=True)
-

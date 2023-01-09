@@ -9,7 +9,7 @@ from aiogram.dispatcher import FSMContext
 
 
 storage = MemoryStorage()
-bot = Bot(KENGURY)
+bot = Bot("5930354248:AAGtL1XeJTu0P84wz-FMHZAWRKiFhajlHwk")
 dp = Dispatcher(bot, storage=storage)
 
 

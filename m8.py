@@ -1,4 +1,4 @@
-# from config import ID_BOT_LESSON3
+# from config import ID_BOT_LESSON3,
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 
 # ReplyKeyboardMarkup создает объект клавиатуры для удобного взаимодействия с ботом
@@ -8,8 +8,8 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemo
 from aiogram import Bot, Dispatcher, executor, types
 
 
-ID_BOT_TOO = "5724701366:AAFEQHc0elthrFpat_eSY6PJIK_zIiEdqMA"
-bot = Bot(ID_BOT_TOO)
+ID_BOT_TOO = "5930354248:AAGtL1XeJTu0P84wz-FMHZAWRKiFhajlHwk"
+bot = Bot("5930354248:AAGtL1XeJTu0P84wz-FMHZAWRKiFhajlHwk")
 dp = Dispatcher(bot)
 
 

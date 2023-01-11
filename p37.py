@@ -54,7 +54,7 @@ async def cmd_start(mess: types.Message) -> None:
 
 @dp.message_handler(commands=["create"])
 async def cmd_create(mess: types.Message) -> None:
-    await mess.reply(text="Давайте оформим Ваш профиль. Пришлит своё фото.",
+    await mess.reply(text="Давайте оформим Ваш профиль. Пришлите своё фото!!!",
                      reply_markup=get_cancel_kb())
     await ProfileStatesGroup.photo.set()    #устанавливаем состояние на ожидание фото
 

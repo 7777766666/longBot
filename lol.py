@@ -1,11 +1,12 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from config import KENGURY
+
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.dispatcher import FSMContext
 
 storage = MemoryStorage()
+KENGURY = "5930354248:AAGtL1XeJTu0P84wz-FMHZAWRKiFhajlHwk"
 proxy_url = 'http://proxy.server:3128'
 bot = Bot(KENGURY, proxy=proxy_url)
 dp = Dispatcher(bot, storage=storage)
@@ -46,7 +47,7 @@ async def cmd_cancel1(mess: types.Message, state: FSMContext):
                      reply_markup=get_kb())
 
 
-@dp.message_handler(commands=["s"])
+@dp.message_handler(commands=["start"])
 async def cmd_start(mess: types.Message) -> None:
     await mess.answer(text="Желаете заполнить Ваш профиль /create",
                       reply_markup=get_kb())
@@ -110,4 +111,3 @@ async def load_description(mess: types.Message, state: FSMContext) -> None:
 
 if __name__ == "__main__":
     executor.start_polling(dp, on_startup=start777, skip_updates=True)
-
